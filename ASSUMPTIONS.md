@@ -40,11 +40,12 @@ difference is ~3% and is not corrected for.
      heated surface, with diffusion time constants of weeks (14–278 days for
      0.2 m). The 95 kg kit does not represent that hardware; a bench-test gate
      (≤10 kWh/kg at ≥2.8 g/min) is specified to retire the risk.
-   - **Concentration couples to energy in reality.** The model applies
-     specific energy per kg of water independently of ice concentration;
-     physically, heating the inert fraction adds sensible-heat cost, so a
-     2 wt% site costs more per kg water than the model shows. Treat the
-     2/5/10 wt% table as throughput scaling only.
+   - **Concentration couples to energy in reality.** The first-order floor
+     (sublimation + sensible heat of the inert fraction) is 1.0, 1.2, 1.9 and
+     3.0 kWh/kg water at 10, 5, 2 and 1 wt% — the design target equals the
+     floor only at ~1 wt%. The model applies a flat 3.0; treat its 2/5/10 wt%
+     table as throughput scaling, and see `miner-heat-transfer.md` for the
+     floor curve.
    - **Energy boundaries.** The feedstock kit's 300 W continuous (7.2 kWh/day)
      is charged separately from the specific-energy term; published kWh/kg
      figures may or may not include such auxiliaries — align boundaries when

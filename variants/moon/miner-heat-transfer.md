@@ -49,7 +49,34 @@ Two conclusions:
 
 ![Miner heat-transfer screen](figures/luna_miner_heat_transfer.png)
 *Figure — Conduction-limited probe length (left) and diffusion time constant
-(right) vs regolith thermal conductivity, at the design-point heat rate.*
+(middle) vs regolith thermal conductivity, and the physics floor vs ice
+concentration (right).*
+
+## Physics floor vs target vs demonstrated
+
+The energy floor for any extraction process is sublimation plus heating the
+inert fraction of the regolith. Per kg of water (0.4 kJ/kg·K average over the
+~200 K swing):
+
+| Ice concentration | Inert regolith per kg water | Physics floor | vs design target |
+|---|---|---|---|
+| 10 wt% | 10 kg | 1.0 kWh/kg | 0.34× |
+| 5 wt% (nominal) | 20 kg | 1.2 kWh/kg | 0.41× |
+| 2 wt% | 50 kg | 1.9 kWh/kg | 0.63× |
+| 1 wt% | 100 kg | 3.0 kWh/kg | 1.00× |
+
+Three readings:
+
+- The 3.0 kWh/kg design target equals the thermodynamic floor at **~1 wt%**
+  concentration and sits ~2.4× above the floor at the nominal 5 wt%. The
+  target is not thermodynamically forbidden — it is an engineering claim
+  about heat delivery and losses.
+- Measured lab processes (10.6–21.2 kWh/kg) are **9–17× the floor** at 5 wt%.
+  The gap to the design target is engineering, not physics — which is exactly
+  what the bench-test gate below is built to probe.
+- Because the floor scales as 1/concentration, a 2 wt% site carries ~0.7
+  kWh/kg of unavoidable extra energy versus 5 wt%; the variant README's
+  concentration table is a throughput statement, not an energy-equivalent one.
 
 ## Where the process has to go (options, with anchors)
 
@@ -79,7 +106,7 @@ One bench test, specified so pass/fail is unambiguous:
 1. Sealable retort or well; cryogenic start (≤100 K); lunar regolith simulant
    at 5 wt% ice; dust-bearing surfaces.
 2. Metrics: **specific energy ≤ 10 kWh/kg water** (design target 3;
-   demonstrated today 10.6–21.2), **collection rate ≥ 2.8 g/min**, capture
+   demonstrated today 10.6–21.2; physics floor 1.2 at 5 wt%), **collection rate ≥ 2.8 g/min**, capture
    efficiency ≥ 90% (proposed), ≥ 100 h cumulative operation.
 3. Negative-result handling: if the bench lands above 10 kWh/kg, the mining
    line rises — the model's sensitivity band already carries the consequence
