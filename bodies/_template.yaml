@@ -1,0 +1,45 @@
+# TRIDENT body configuration template.
+#
+# Copy this file to bodies/<name>.yaml and fill every field marked REQUIRED.
+# The concept-level sizing model (tools/model.py) reads ONLY the fields it
+# needs (night_length_h, resources.*, solar_flux_w_m2); the rest is context
+# for the variant documents and the module applicability matrix.
+#
+# Rules:
+#   - Every numeric field should carry a source (URL) or be marked
+#     "engineering estimate" in notes. Do not leave unexplained numbers.
+#   - Ranges are recorded as [low, nominal, high] where the literature gives
+#     a spread.
+
+name: <body name>                      # REQUIRED
+gravity_ms2: <value>                   # REQUIRED  [m/s^2]
+gravity_g: <value>                     # [fraction of Earth g]
+day_length_h: <value>                  # REQUIRED  [h] solar day
+night_length_h: <value>                # REQUIRED  [h] typical worst-case surface night; drives power + storage sizing
+solar_flux_w_m2: <value>               # [W/m^2] orbit-average at the body's distance from the Sun
+
+surface_temp:
+  min_c: <value>
+  max_c: <value>
+  notes: ""
+
+atmosphere:
+  pressure_pa: <value>                 # < 100 Pa can be treated as vacuum for processing purposes
+  composition: ""                      # e.g. "95% CO2, 3% N2, 2% Ar"
+  co2_available: false                 # REQUIRED  true only if the atmosphere can be a practical CO2 feedstock
+
+resources:
+  water_ice:                           # REQUIRED block
+    available: false
+    concentration_notes: ""            # wt% where known, with source
+  regolith_oxygen:
+    available: false
+    oxygen_wt_pct_notes: ""            # e.g. "~40-45 wt% O in bulk regolith"
+  other: []
+
+dust:
+  environment: ""                      # grain shape, charging, storms, abrasiveness
+  applicable_mitigations: []           # module ids from modules/parameters.yaml
+
+notes: ""                              # siting and CONOPS implications
+sources: []                            # URL list used in this file

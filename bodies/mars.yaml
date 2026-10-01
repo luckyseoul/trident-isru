@@ -1,0 +1,47 @@
+# TRIDENT body configuration: Mars.
+# Values are standard reference figures (NASA fact sheets / published
+# planetology) rounded for concept sizing. See variants/mars/SOURCES.md.
+
+name: Mars
+gravity_ms2: 3.71
+gravity_g: 0.379
+day_length_h: 24.66                     # one sol
+night_length_h: 12.5                    # equatorial worst case for power sizing; polar winter nights are longer
+solar_flux_w_m2: 586                    # 1361 / 1.524^2; varies ~ +/-20% with eccentricity and dust loading
+
+surface_temp:
+  min_c: -125
+  max_c: 20
+  notes: "Mean ~ -63 C; large diurnal swing."
+
+atmosphere:
+  pressure_pa: 610                      # ~6 mbar, ~95% CO2
+  composition: "95.3% CO2, 2.7% N2, 1.6% Ar, 0.13% O2"
+  co2_available: true
+
+resources:
+  water_ice:
+    available: true
+    concentration_notes: >
+      Polar caps and shallow subsurface ice at mid-to-high latitudes
+      (radar/neutron detections). Local concentration is site-specific;
+      the Mars variant treats ice as an optional feedstock, not a baseline.
+  regolith_oxygen:
+    available: true
+    oxygen_wt_pct_notes: "Bulk martian regolith contains ~40-45 wt% oxygen; not used by the baseline architecture."
+  other:
+    - "Atmospheric argon and nitrogen as inert cover-gas candidates"
+
+dust:
+  environment: >
+    Global dust storms; fine (approx. 1-3 um) electrostatically adhering
+    particles; perchlorate-bearing soil at some sites.
+  applicable_mitigations: ["bop-dust"]
+
+notes: >
+  Baseline architecture mines the atmosphere (CO2) and closes hydrogen with
+  an optional ice-melt subsystem. Thirty-day dust-storm seasons make
+  atmospheric-independent power and no-consumable dust rejection high-value.
+
+sources:
+  - "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"

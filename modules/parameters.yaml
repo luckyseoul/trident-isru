@@ -1,0 +1,144 @@
+# TRIDENT concept-level module parameter catalog.
+#
+# Read by tools/model.py to compose a variant budget from a body config.
+# Values are concept estimates for a design study, not tolerances: expect
+# +/-30-50% at this maturity. Physical constants carry sources; hardware
+# mass/power figures are engineering estimates calibrated to the published
+# Mars concept mass class (240-280 kg core) unless noted.
+#
+# Module ids correspond to modules/<id>.md documents.
+
+chemistry:
+  water_per_kg_o2: 1.125          # 2 H2O -> 2 H2 + O2 : 36 g / 32 g
+  h2_per_kg_o2: 0.125             # 4 g / 32 g
+  co2_per_kg_o2: 2.75             # CO2 -> CO + 0.5 O2 : 44 g / 16 g
+  # Sabatier: CO2 + 4 H2 -> CH4 + 2 H2O
+  co2_per_kg_ch4: 2.75
+  h2_per_kg_ch4: 0.5
+  h2o_per_kg_ch4: 2.25
+  electrolysis_thermoneutral_kwh_per_kg_o2: 4.92   # dH(H2O->H2+0.5 O2), HHV basis; CO2-splitting is ~4.9 as well
+
+sizing:
+  crew_o2_kg_per_person_day: 0.84         # NASA HIDH/BVAD metabolic baseline
+  battery_pack_wh_per_kg: 150             # installed-pack estimate; space Li-ion cells run ~100-200 Wh/kg (Saft VES180 cell: 180 Wh/kg)
+  battery_dod: 0.8                        # usable depth of discharge
+  o2_buffer_days: 3                       # gaseous storage sizing
+  tank_kg_per_kg_gas: 4.0                 # small composite pressure vessel, order-of-magnitude
+
+categories:
+  feedstock-atmosphere-co2: core
+  feedstock-ice-water: peripheral
+  feedstock-regolith-oxygen: peripheral
+  processing-electrolysis: core
+  processing-sabatier: core
+  bop-thermal: core
+  bop-dust: core
+  bop-storage: storage
+  bop-power-avionics: controls
+  bop-structure: core
+  bop-redundancy-extra: core
+
+modules:
+
+  feedstock-atmosphere-co2:
+    mass_kg: 18
+    mass_range: [12, 26]
+    power_w: 110
+    energy_kwh_per_kg_co2: 0.12           # drying + compression to process pressure, order-of-magnitude
+    inputs: ["Mars atmosphere"]
+    outputs: ["CO2 at process pressure"]
+    notes: "Intake, dust pre-separation, compressor/dryer skid."
+
+  feedstock-ice-water:
+    mass_kg: 95
+    mass_range: [55, 150]
+    power_w: 300
+    energy_kwh_per_kg_water: 3.0          # design target; sensitivity band 1.2 (modeled: Sowers & Dreyer 2020) to ~44 (lab-demonstrated: LUWEX 2026)
+    energy_kwh_per_kg_water_range: [1.2, 3.0, 44]
+    inputs: ["ice-bearing regolith"]
+    outputs: ["water"]
+    notes: >
+      Peripheral kit: regolith acquisition/transfer plus thermal miner and
+      cold-trap capture. Mass is strongly site- and architecture-dependent
+      (thermal mining vs excavation-plus-retort).
+
+  feedstock-regolith-oxygen:
+    mass_kg: 140
+    mass_range: [90, 220]
+    power_w: 900
+    energy_kwh_per_kg_o2: 22              # molten regolith electrolysis, system level (ESA/NASA: ~20-25)
+    inputs: ["regolith"]
+    outputs: ["O2 (and metals as by-product)"]
+    notes: >
+      Contingency / site-independent route where ice is not accessible.
+      High specific energy; listed as contingency, not baseline.
+
+  processing-electrolysis:
+    mass_kg: 80
+    mass_range: [60, 100]
+    power_w: 250                          # controls/heaters external to stack energy
+    system_efficiency: 0.75               # stack+rectifier+thermal, HHV basis (~6.6 kWh/kg O2; DOE PEM-class 51-55 kWh/kg H2)
+    inputs: ["water", "electric power", "(or CO2 in co-electrolysis mode)"]
+    outputs: ["O2", "H2"]
+    notes: >
+      Triple-string solid-oxide cell modules (steam mode for lunar water;
+      CO2 co-electrolysis mode for Mars). Shared thermal mass enables
+      warm-swap maintenance.
+
+  processing-sabatier:
+    mass_kg: 28
+    mass_range: [20, 38]
+    power_w: 60
+    parasitic_kwh_per_kg_ch4: 1.2         # recirculation/compression; reaction is exothermic (heat credited internally)
+    inputs: ["CO2", "H2"]
+    outputs: ["CH4", "H2O"]
+    notes: "Absent from the lunar baseline (no ISRU carbon); present on Mars."
+
+  bop-thermal:
+    mass_kg: 50
+    mass_range: [36, 70]
+    power_w: 130                          # keep-alive heaters, pump losses
+    inputs: ["heat from Sabatier / electrolysis"]
+    outputs: ["vapor feed preheat", "warm-swap capability"]
+    notes: "Shared thermal mass baseplate, loop plumbing, radiators."
+
+  bop-dust:
+    mass_kg: 10
+    mass_range: [6, 15]
+    power_w: 15
+    inputs: []
+    outputs: ["dust rejection / exclusion"]
+    notes: >
+      Mars: parasitic RF electrostatic precipitator on the intake.
+      Moon: electrodynamic dust shield + seals (no gas phase available).
+
+  bop-storage:
+    mass_kg: null                        # computed from O2 buffer sizing
+    power_w: 20
+    notes: "Gaseous baseline; cryogenic liquefaction remains optional and outside this budget."
+
+  bop-power-avionics:
+    mass_kg: 24
+    mass_range: [17, 32]
+    power_w: 60
+    inputs: []
+    outputs: ["control, telemetry, power conditioning"]
+    notes: "Common avionics + harness across variants."
+
+  bop-structure:
+    mass_kg: 12
+    mass_range: [8, 17]
+    notes: "Frames, mounts, feed lines common to all variants."
+
+  bop-redundancy-extra:
+    mass_kg: 10
+    mass_range: [7, 15]
+    notes: "Isolation valves, bypass manifolds, and extra plumbing that make warm-swap real."
+
+# Parameter sources (full register: variants/moon/SOURCES.md)
+sources:
+  electrolysis_kwh_per_kg_h2: "DOE Hydrogen Shot Water Electrolysis Technology Assessment (2024): 51-55 kWh/kg H2 PEM-class system level"
+  ice_mining_kwh_per_kg_water: "Sowers & Dreyer 2020 (1.2 modeled); LUWEX 2026 (22.9-66.3 g/kWh lab, i.e. ~44-15 kWh/kg)"
+  regolith_o2_kwh_per_kg: "ESA / NASA NTRS 20190002756 (~20-25 kWh/kg O2 system level)"
+  battery_wh_per_kg: "NASA smallsat SOA 100-200 Wh/kg; Saft VES180 cell 180 Wh/kg"
+  crew_o2_kg_per_person_day: "NASA HIDH SP-2010-3407 / BVAD TP-2015-218570"

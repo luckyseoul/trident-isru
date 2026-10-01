@@ -1,0 +1,32 @@
+# TRIDENT-Mars: the original Mars configuration (August 2026 overview), routed
+# through the shared sizing model so both variants are analyzed by the same
+# machinery.
+#
+# This is a consistency analysis of the published configuration, not a
+# redesign. Published performance figures remain as stated in
+# variants/mars/README.md and the overview PDF; ASSUMPTIONS.md records the
+# open items the model surfaced.
+
+name: TRIDENT-Mars
+body: mars
+status: published-reference
+crew: 4
+o2_target_kg_per_day: 3.75    # published core mode 3.6-3.9 kg/sol
+methane_kg_per_day: 3.8       # published 3.6-4.0 kg/sol
+hydrogen_strategy: imported_stock   # as-published core mode: H2 deficit carried externally (see ASSUMPTIONS.md)
+
+feedstock: atmosphere-co2
+modules:
+  feedstock: [feedstock-atmosphere-co2]
+  processing: [processing-electrolysis, processing-sabatier]
+  bop: [bop-thermal, bop-dust, bop-storage, bop-power-avionics, bop-structure, bop-redundancy-extra]
+
+power:
+  mode: solar-battery         # as-published class; night storage shown for cross-body comparison
+
+storage_params:
+  buffer_days: 3
+
+overrides:
+  processing-electrolysis:
+    system_efficiency: 0.88   # published concept implies high-temperature SOEC with process-heat integration

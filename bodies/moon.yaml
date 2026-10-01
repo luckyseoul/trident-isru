@@ -1,0 +1,63 @@
+# TRIDENT body configuration: Moon (Luna).
+# Values sourced per variants/moon/SOURCES.md (verified 2026-10-01).
+
+name: Moon
+gravity_ms2: 1.62
+gravity_g: 0.166
+day_length_h: 708.7                     # 29.53 d synodic day (NSSDC)
+night_length_h: 354                     # equatorial worst case (~14.75 d); even the best-lit polar ridges spend ~14% of the year dark (Gläser 2014)
+solar_flux_w_m2: 1361                   # at 1 AU, unattenuated (no atmosphere)
+
+surface_temp:
+  min_c: -178                           # 95 K equatorial night (NSSDC diurnal range 95–390 K)
+  max_c: 117                            # 390 K equatorial day
+  notes: >
+    Equatorial diurnal range 95–390 K. Permanently shadowed regions are far
+    colder: ~40 K measured at the Cabeus floor (Diviner/LCROSS), with
+    south-polar cold traps reaching ~33 K.
+
+atmosphere:
+  pressure_pa: 3.0e-10                  # night surface pressure ~3e-15 bar (NSSDC); treat as vacuum
+  composition: "tenuous exosphere (~25 t total); no usable CO2 feedstock"
+  co2_available: false
+
+resources:
+  water_ice:
+    available: true
+    concentration_notes: >
+      PSR ice confirmed in situ: LCROSS ejecta at Cabeus measured
+      5.6 ± 2.9 wt% water (Colaprete et al. 2010, Science); remote sensing
+      shows heterogeneous distribution across polar cold traps. The lunar
+      variant assumes 5 wt% at a polar PSR mining site, carried as a
+      sensitivity in the sizing model.
+  regolith_oxygen:
+    available: true
+    oxygen_wt_pct_notes: "≈40–45 wt% O in bulk regolith (NASA/ESA); extractable only via high-energy routes (MRE ~20–25 kWh/kg O2; ilmenite H2 reduction at 800–1100 °C; carbothermal)."
+  other:
+    - "Regolith metals (Fe, Ti, Al) as future structural feedstocks; not used by this concept"
+
+dust:
+  environment: >
+    No atmosphere: grains are not weathered round. They are angular,
+    abrasive and electrostatically charged with strong surface adhesion;
+    Apollo-era experience documented seal, optical and radiator
+    degradation. No gas-phase dust removal applies.
+  applicable_mitigations: ["bop-dust"]
+
+notes: >
+  Lunar tailoring pivots the feedstock chain from atmospheric CO2 (Mars) to
+  polar water ice. Environment-driven changes: (1) ~354 h equatorial night
+  breaks solar-battery power assumptions at this load - fission surface
+  power is the baseline; (2) vacuum removes convective heat rejection and
+  gas-phase dust handling; (3) no usable carbon feedstock means methane
+  cannot be ISRU-closed and is optional/imported, not baseline. Ice-mining
+  energy is the dominant uncertainty (modeled ~1.2 kWh/kg water vs ~44
+  kWh/kg demonstrated at lab scale) and dominates the energy sensitivity.
+
+sources:
+  - "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html"
+  - "https://www.nasa.gov/news-release/lcross-impact-data-indicates-water-on-moon/"
+  - "https://www.science.org/doi/10.1126/science.1186986"
+  - "https://www.science.org/doi/10.1126/science.1187726"
+  - "https://www.sciencedirect.com/science/article/pii/S0019103510004251"
+  - "https://www.sciencedirect.com/science/article/pii/S0019103514004563"
