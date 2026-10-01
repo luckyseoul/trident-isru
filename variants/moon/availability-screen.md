@@ -27,9 +27,9 @@
 - Two of three strings online deliver **2.40 kg O₂/day — 0.96 kg/day short of
   crew demand**. The 3-day buffer (10.8 kg) covers **11.3 days** of
   single-string outage.
-- For N-1 to be *production-neutral*, per-string capacity must be
-  **1.80 kg/day = 1.5× the nameplate share**. The concept does not currently
-  state that design requirement.
+- For N-1 to cover **crew demand**, per-string capacity must be
+  **1.68 kg/day (1.4× the nameplate share)**; to hold the **3.6 kg/day set
+  point** it must be 1.80 kg/day (1.5×). Decision below adopts ≥1.4×.
 - Simultaneous double failures are negligible at any plausible MTBF (≤ 10⁻⁵).
   The real availability concerns are therefore the output shortfall and
   **spare-stack cadence: 1–3 stacks per year**.
@@ -39,20 +39,17 @@
 
 ## Resolving the N-1 finding
 
-Two defensible closures, both cheap to state and both one line of design
-intent in the variant document:
+**Decision (repository baseline).** Strings are specified with a ≥1.4×
+capacity margin — 1.68 kg O₂/day each, so two strings cover the 3.36 kg/day
+crew demand (1.5× / 1.80 kg/day if the 3.6 kg/day set point must hold under
+N-1). This makes the warm-swap claim true by construction; the margin's
+mass and power cost must be carried in the electrolysis module line at the
+next sizing pass. Buffer draw-down (11.3 days at the 0.96 kg/day shortfall)
+remains the stated fallback for outages beyond the repair timeline, with
+reduced activity beyond that.
 
-1. **Design margin** — size each string for 1.80 kg O₂/day (1.5× its nameplate
-   share) so two strings cover the 3.6 kg/day set point; N-1 becomes
-   production-neutral. Cost: stack capacity bought for redundancy.
-2. **Buffer CONOPS** — run strings at their share and accept draw-down: the
-   3-day buffer (10.8 kg) covers 11.3 days at the 0.96 kg/day shortfall, with
-   a stated repair timeline (12 h assumed here) and a reduced-activity
-   fallback if the outage outlasts the buffer.
-
-`variants/moon/README.md` §2 now states both. What is not acceptable is
-leaving the availability behavior implicit behind "the other two keep
-producing."
+What is not acceptable is leaving the availability behavior implicit behind
+"the other two keep producing."
 
 ## What this is not
 

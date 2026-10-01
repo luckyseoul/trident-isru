@@ -64,8 +64,9 @@ def main() -> None:
     print(f"two of three strings online: {one_down:.2f} kg/day -> shortfall {shortfall:.2f} kg/day")
     print(f"the {BUFFER_DAYS:.0f}-day buffer ({buffer_kg:.1f} kg) covers "
           f"{buffer_kg / shortfall:.1f} days of single-string outage")
-    print(f"per-string capacity for N-1 production-neutral: {o2 / 2.0:.2f} kg/day "
-          f"= {o2 / 2.0 / (o2 / 3.0):.2f}x the nameplate share")
+    print(f"per-string capacity to cover crew demand under N-1: {demand / 2.0:.2f} kg/day "
+          f"= {(demand / 2.0) / (o2 / 3.0):.2f}x nameplate share; to hold the set point: "
+          f"{o2 / 2.0:.2f} kg/day = {(o2 / 2.0) / (o2 / 3.0):.2f}x")
     print("\nreading: simultaneous double failures are negligible at any plausible MTBF;")
     print("the binding issues are (a) the N-1 output shortfall and (b) stack spares cadence.")
 

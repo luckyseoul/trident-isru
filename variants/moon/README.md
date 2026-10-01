@@ -93,7 +93,12 @@ one line of design intent:
   3-day buffer (10.8 kg) covers **11.3 days** of single-string outage at the
   shortfall rate, against a stated repair timeline.
 
-Either is defensible; leaving the availability behavior implicit is not.
+Either is defensible. **Baseline decision:** strings are specified with a
+**≥1.4× capacity margin** (1.68 kg O₂/day each, so two strings cover the
+3.36 kg/day crew demand; 1.5×/1.8 kg/day to hold the 3.6 kg/day set point),
+making N-1 production-neutral by construction. The margin's mass/power cost
+is carried into the electrolysis module line at the next sizing pass. Buffer
+draw-down remains the stated fallback for outages beyond the repair timeline.
 
 ```
 PSR ice-bearing regolith ──► [ice feedstock kit] ──► water ──► [electrolysis ×3] ──► O2 (life support)

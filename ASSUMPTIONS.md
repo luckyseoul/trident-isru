@@ -113,13 +113,14 @@ rejection and
 condensation details beyond the radiator-area screen (item 7); batching
 transients for the mining thermal duty; and the stowage break-even is now
 sketched (`stowage-break-even.md`) rather than a costed logistics analysis.
-TRL positions are drafted in `trl-table.md` for author review.
+TRL positions are assessed in `trl-table.md`, with basis per row.
 
 ## TRIDENT-Mars — consistency notes on the published configuration
 
 The Mars material is reproduced as published (August 2026). These notes
-record where the shared model could not reconcile the published figures and
-are offered for the author's review — they are **not** corrections.
+record where the shared model could not reconcile the published figures. They
+are documented for traceability; the published Mars material is unchanged and
+these are **not** corrections.
 
 1. **Hydrogen closure.** The overview pairs 3.6–4.0 kg CH₄/sol with
    3.6–3.9 kg O₂/sol and acknowledges a "2 mol H₂ per mol CH₄" deficit. For

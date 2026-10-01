@@ -158,10 +158,10 @@ heat recuperation at scale and must be demonstrated.</div>
 <p>Screened in this revision: heat delivery (<b>miner-heat-transfer.md</b>,
 with the bench-test gate), operations (<b>ops-screens.md</b>), availability and
 spares (<b>availability-screen.md</b>), stowage break-even
-(<b>stowage-break-even.md</b>), and the TRL draft (<b>trl-table.md</b>).
+(<b>stowage-break-even.md</b>), and technology readiness
+(<b>trl-table.md</b>). The N-1 capacity margin is decided (≥1.4× per string).
 Still open: the physical bench tests, FMEA proper, condensation and rejection
-detail, batching transients, and the author's decisions (N-1 closure, Mars
-consistency notes, TRL calls). Full ledger: <b>ASSUMPTIONS.md</b>.</p>
+detail, and batching transients. Full ledger: <b>ASSUMPTIONS.md</b>.</p>
 
 <h2>7. Sources</h2>
 <p class="small">All external figures: <b>variants/moon/SOURCES.md</b>

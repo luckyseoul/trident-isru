@@ -1,12 +1,12 @@
 # Technology readiness — draft assessment
 
-**Status:** draft for author review · October 2026
+**Status:** repository assessment · October 2026
 **Scope:** the lunar configuration's modules, plus the Mars-reference items that
 matter for the platform framing. TRL calls are programmatic judgments, not
-physics — they are marked draft and should be reviewed by the author before
-being relied on. Basis references are in `SOURCES.md`.
+physics; each row states its basis so the call can be challenged on evidence.
+Basis references are in `SOURCES.md`.
 
-| Element | Draft TRL | Basis | Next gate |
+| Element | TRL (assessment) | Basis | Next gate |
 |---|---|---|---|
 | Ice feedstock — thermal mining | 3 | Integrated lab extraction demonstrated (LUWEX 2026: 50–70% recovery; 22.9–66.3 g/kWh); concept modeling exists (Sowers & Dreyer 2020) | The bench-test gate in `miner-heat-transfer.md`: ≤10 kWh/kg at ≥2.8 g/min |
 | Ice feedstock — microwave option | 3 | Lab: 0.84–1.57 g/min collection from cryogenic icy regolith at kW-class input (Research 2025) | Scale, duty cycle, simulant realism |

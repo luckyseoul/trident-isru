@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.1 — 2026-10-01
+
+### Changed
+- N-1 availability **decided**: per-string capacity margin ≥1.4× (two strings
+  cover crew demand under N-1), 1.5× to hold the 3.6 kg/day set point; buffer
+  draw-down stated as the fallback for outages beyond the repair timeline
+  (`variants/moon/README.md` §2, `availability-screen.md`)
+- TRL table reframed from "draft for author review" to a repository assessment
+  with basis per row (`trl-table.md`)
+- Mars consistency notes restated as documented traceability findings; the
+  published Mars material is unchanged
+- Overview PDF and assumption ledger updated to match
+
 ## v1.0 — 2026-10-01 — concept baseline (lunar + modular platform)
 
 ### Added
