@@ -1,3 +1,16 @@
+# TRIDENT — Mars configuration (original, August 2026)
+
+> **Archival note (October 2026).** This is the original Mars concept as
+> published, with its figures and overview PDF, preserved unchanged below.
+> The repository is now a multi-body platform: start at the top-level
+> [`README.md`](../../README.md) for the modular structure, and see
+> [`variants/moon/README.md`](../moon/README.md) for the lunar variant.
+> Consistency notes surfaced by the shared sizing model are recorded in
+> [`ASSUMPTIONS.md`](../../ASSUMPTIONS.md). External figures below reference
+> this directory's `figures/` folder.
+
+---
+
 # TRIDENT
 
 **Triple-Redundant Integrated Design for Extraterrestrial Needs**  
