@@ -151,13 +151,17 @@ heat recuperation at scale and must be demonstrated.</div>
 <div class="caption">Figure 2 — Plant power vs ice-mining specific energy.</div>
 <img src="{img('luna_mass_breakdown.png')}"/>
 <div class="caption">Figure 3 — Concept mass breakdown.</div>
+<img src="{img('luna_miner_heat_transfer.png')}"/>
+<div class="caption">Figure 4 — Miner heat-transfer screen: probe length, diffusion time constant, and the extraction-energy physics floor.</div>
 
 <h2>6. Open items</h2>
-<p>Ranked list in <b>ASSUMPTIONS.md</b>: mining energy and heat delivery
-(a first-order screen and a bench-test gate are now specified — see
-<b>miner-heat-transfer.md</b>); ice concentration; PSR-to-plant material
-handling; H₂ storage not modeled; fission availability; dust at the regolith
-interface; night thermal duty; no-methane scope check.</p>
+<p>Screened in this revision: heat delivery (<b>miner-heat-transfer.md</b>,
+with the bench-test gate), operations (<b>ops-screens.md</b>), availability and
+spares (<b>availability-screen.md</b>), stowage break-even
+(<b>stowage-break-even.md</b>), and the TRL draft (<b>trl-table.md</b>).
+Still open: the physical bench tests, FMEA proper, condensation and rejection
+detail, batching transients, and the author's decisions (N-1 closure, Mars
+consistency notes, TRL calls). Full ledger: <b>ASSUMPTIONS.md</b>.</p>
 
 <h2>7. Sources</h2>
 <p class="small">All external figures: <b>variants/moon/SOURCES.md</b>
@@ -175,7 +179,8 @@ plan. All performance figures are engineering estimates; real implementation
 requires independent detailed design, hazard analysis, qualification testing
 and professional engineering oversight.</p>
 <p class="small"><b>Author:</b> Nicholas Dean Perry · design concept, October 2026 ·
-Generated from tools/model.py (run 2026-10-01).</p>
+Generated from tools/model.py (run 2026-10-01). Verified by 11 regression
+tests and CI (github.com/luckyseoul/trident-platform).</p>
 
 </body></html>"""
 
