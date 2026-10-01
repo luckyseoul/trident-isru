@@ -82,7 +82,13 @@ difference is ~3% and is not corrected for.
    and haul interfaces is a systems-level unknown.
 7. **Night operations.** The plant is assumed to run at full load through
    eclipses on fission power, with 160 W of vacuum keep-alive heating. The
-   354 h continuous-night thermal duty has not been analyzed.
+   354 h continuous-night thermal duty has not been analyzed. First-order
+   screen of the rejection side: radiating ~2 kW of waste heat in vacuum at
+   plausible rejection temperatures (300–350 K, sink ~0–40 K) needs roughly
+   3–6 m² of radiator (P = εσA(T⁴ − T_sink⁴), ε ≈ 0.9) — area is not the
+   binding constraint; keep-alive power and design-in for a 354 h dark
+   period are. The 160 W figure remains a placeholder until a real thermal
+   model exists.
 8. **Scope confirmation.** The lunar baseline produces no methane (carbon
    constraint). If a mission requires ascent propellant from this node, the
    scope changes materially; methane would need imported carbon.
