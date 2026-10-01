@@ -102,9 +102,12 @@ landing loads, connector/harness exposure at the regolith interface. They are
 pointers for a next-phase analysis, not omissions of the sizing model.
 
 **Not modeled in this revision (next-phase analyses).** Redundancy as
-engineering substance: N-1 production with two of three strings, warm-swap
-cooldown time and turnaround losses, and the realization of thermal isolation
-in vacuum (the shared thermal mass is a thermal *short* as well as an asset).
+engineering substance: N-1 output is now quantified at the no-margin floor
+(two of three strings → 2/3 of nameplate: 2.4 kg O₂/day ≈ 2.9 crew-equivalents
+on Luna; per-string headroom would raise it), but warm-swap cooldown time,
+turnaround losses, and the realization of thermal isolation in vacuum (the
+shared thermal mass is a thermal *short* as well as an asset) remain
+unmodeled.
 Duty cycles, peak loads and a hibernation mode. A heat-transfer-limited miner
 model with contact-area and power-density constraints. Radiator sizing,
 rejection temperature and condensation control. FMEA/availability/spares for

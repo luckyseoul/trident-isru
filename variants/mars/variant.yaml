@@ -11,6 +11,7 @@ name: TRIDENT-Mars
 body: mars
 status: published-reference
 crew: 4
+strings: 3                    # parallel process strings; N-1 output computed by tools/model.py
 o2_target_kg_per_day: 3.75    # published core mode 3.6-3.9 kg/sol
 methane_kg_per_day: 3.8       # published 3.6-4.0 kg/sol
 hydrogen_strategy: imported_stock   # as-published core mode: H2 deficit carried externally (see ASSUMPTIONS.md)

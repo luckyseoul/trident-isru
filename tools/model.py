@@ -217,6 +217,16 @@ def build(variant_rel: str) -> dict:
 
     result["crew_equivalent"] = round(o2_target / float(sizing["crew_o2_kg_per_person_day"]), 1)
 
+    strings = int(variant.get("strings", 3))
+    if strings > 1:
+        n1_o2 = o2_target * (strings - 1) / strings
+        result["n_minus_1"] = {
+            "strings": strings,
+            "o2_kg_per_day_with_one_string_down": round(n1_o2, 2),
+            "crew_equivalent": round(n1_o2 / float(sizing["crew_o2_kg_per_person_day"]), 1),
+            "note": "no throttle margin assumed; per-string headroom would raise this",
+        }
+
     # Ice-mining energy sensitivity: the dominant uncertainty for a water-based variant.
     if water_total and "feedstock-ice-water" in selected:
         base = energy_total - energy.get("feedstock-ice-water", 0.0)
@@ -244,6 +254,10 @@ def _flat_modules(variant: dict) -> list[str]:
 def print_human(r: dict) -> None:
     print(f"== {r['variant']}  (body: {r['body']}, status: {r['status']}) ==")
     print(f"crew equivalent (@0.84 kg O2/person-day): {r['crew_equivalent']}")
+    if r.get("n_minus_1"):
+        n1 = r["n_minus_1"]
+        print(f"N-1 (one of {n1['strings']} strings down, no margin): "
+              f"{n1['o2_kg_per_day_with_one_string_down']} kg O2/day -> {n1['crew_equivalent']} crew-equivalents")
     print("\n-- flows (per day) --")
     for k, v in r["flows"].items():
         print(f"  {k}: {v}")

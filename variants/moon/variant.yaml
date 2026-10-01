@@ -8,6 +8,7 @@ name: TRIDENT-Luna
 body: moon
 status: concept-baseline
 crew: 4                       # nominal; 3.6 kg O2/day ≈ 4.3 crew-equivalents at 0.84 kg/person-day
+strings: 3                    # parallel process strings; N-1 output computed by tools/model.py
 o2_target_kg_per_day: 3.6     # delivered to life support
 methane_kg_per_day: 0         # carbon-constrained: methane is not ISRU-closed on the Moon
 hydrogen_strategy: closed_loop

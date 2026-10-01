@@ -81,7 +81,10 @@ high end of its demonstrated range.
 Three identical process strings (electrolysis modules) sit on a shared
 thermal mass baseplate, as in the Mars concept. Each string is fluidically
 and thermally isolated before servicing (warm-swap), so one string can cool
-for maintenance while the other two keep producing.
+for maintenance while the other two keep producing. With one string down and
+no throttle margin, output falls to two-thirds of the set point: **2.4 kg
+O₂/day ≈ 2.9 crew-equivalents** — the availability floor to design against
+(per-string headroom, if specified, would raise it).
 
 ```
 PSR ice-bearing regolith ──► [ice feedstock kit] ──► water ──► [electrolysis ×3] ──► O2 (life support)
