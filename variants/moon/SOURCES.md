@@ -89,6 +89,16 @@ carried into the parameter files instead of being collapsed to one number.
   ice regolith reported at ~37.9 Wh/g.**
   https://www.researchgate.net/publication/365155522_Water_extraction_from_icy_lunar_regolith_by_drilling-based_thermal_method_in_a_pilot-scale_unit
 
+### Technology readiness (bases for `trl-table.md`)
+
+- **EDS tested on the ISS (MISSE experiment); >90% removal in vacuum simulant tests.**
+  NASA NTRS 20120016795 (J. Electrostatics): https://ntrs.nasa.gov/citations/20120016795
+- **Sabatier CO₂ Reduction Assembly on ISS: launched 2009, operational June 2011.**
+  “State of NASA Oxygen Recovery”: https://ttu-ir.tdl.org/server/api/core/bitstreams/9c25517c-ff9b-455a-9628-3d091792ddf1/content
+- **KRUSTY: 1 kWe prototype, full-power ground test 2018 (~5.5 kW thermal, 28 h, failure simulation).**
+  NASA: https://www.nasa.gov/news-release/demonstration-proves-nuclear-fission-system-can-provide-space-exploration-power/
+  DOE/NNSA: https://www.energy.gov/nnsa/articles/nnsa-nasa-demonstrate-nuclear-reactor-power-system-space-exploration
+
 ## Power
 
 - **Fission surface power: 40 kWe-class unit targeted to operate on the
