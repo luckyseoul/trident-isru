@@ -101,19 +101,17 @@ and electrode life, valve actuation power, radiator transients, launch and
 landing loads, connector/harness exposure at the regolith interface. They are
 pointers for a next-phase analysis, not omissions of the sizing model.
 
-**Not modeled in this revision (next-phase analyses).** Redundancy as
-engineering substance: N-1 output is now quantified at the no-margin floor
-(two of three strings → 2/3 of nameplate: 2.4 kg O₂/day ≈ 2.9 crew-equivalents
-on Luna; per-string headroom would raise it), but warm-swap cooldown time,
-turnaround losses, and the realization of thermal isolation in vacuum (the
-shared thermal mass is a thermal *short* as well as an asset) remain
-unmodeled.
-Duty cycles, peak loads and a hibernation mode. A heat-transfer-limited miner
-model with contact-area and power-density constraints. Radiator sizing,
-rejection temperature and condensation control. FMEA/availability/spares for
-a life-support-critical plant. A stowage baseline and break-even against
-carried consumables with an explicit cost boundary (including the shared
-fission plant). A TRL table naming the bench test that retires item 1.
+**Not modeled in this revision (after the October 2026 screens).** N-1 output
+is quantified at the no-margin floor (two of three strings → 2/3 of nameplate:
+2.4 kg O₂/day ≈ 2.9 crew-equivalents on Luna; per-string headroom would raise
+it). Warm-swap cooldown is screened radiatively (~15 min–2.3 h,
+`ops-screens.md`), but the isolation hardware that makes it real, restart
+transients and service turnaround remain unmodeled. Also open:
+FMEA/availability/spares for a life-support-critical plant; rejection and
+condensation details beyond the radiator-area screen (item 7); batching
+transients for the mining thermal duty; and the stowage break-even is now
+sketched (`stowage-break-even.md`) rather than a costed logistics analysis.
+TRL positions are drafted in `trl-table.md` for author review.
 
 ## TRIDENT-Mars — consistency notes on the published configuration
 
