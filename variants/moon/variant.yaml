@@ -1,0 +1,34 @@
+# TRIDENT-Luna: lunar surface ISRU variant (baseline: polar water-ice feedstock).
+#
+# Composed by tools/model.py with bodies/moon.yaml and modules/parameters.yaml.
+# Headline numbers in variants/moon/README.md are generated from this file:
+#     python3 tools/model.py variants/moon
+
+name: TRIDENT-Luna
+body: moon
+status: concept-baseline
+crew: 4                       # nominal; 3.6 kg O2/day ≈ 4.3 crew-equivalents at 0.84 kg/person-day
+o2_target_kg_per_day: 3.6     # delivered to life support
+methane_kg_per_day: 0         # carbon-constrained: methane is not ISRU-closed on the Moon
+hydrogen_strategy: closed_loop
+
+feedstock: ice-water
+feedstock_params:
+  ice_wt_pct: 5.0             # nominal (LCROSS Cabeus: 5.6 ± 2.9 wt%); model carries the sensitivity
+
+modules:
+  feedstock: [feedstock-ice-water]
+  processing: [processing-electrolysis]
+  bop: [bop-thermal, bop-dust, bop-storage, bop-power-avionics, bop-structure, bop-redundancy-extra]
+
+contingency_modules: [feedstock-regolith-oxygen]
+
+power:
+  mode: fission               # 40 kWe-class shared fission surface power; batteries for day/night buffering only
+
+storage_params:
+  buffer_days: 3
+
+overrides:
+  bop-thermal:
+    power_w: 160              # vacuum environment, PSR-adjacent site: heaters + pump losses
