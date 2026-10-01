@@ -1,3 +1,10 @@
+> **Development continues in a new repository.**
+> TRIDENT is now a modular, multi-body platform: **[luckyseoul/trident-platform](https://github.com/luckyseoul/trident-platform)**.
+> The lunar baseline (TRIDENT-Luna), the concept-level sizing model and the
+> screening analyses live there, and this Mars concept is preserved there
+> unchanged as `variants/mars/`. This README and the August 2026 overview
+> PDF remain as published here.
+
 # TRIDENT
 
 **Triple-Redundant Integrated Design for Extraterrestrial Needs**  
