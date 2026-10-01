@@ -65,3 +65,15 @@ python3 tools/ops_check.py
 ```
 
 Analysis: `variants/moon/ops-screens.md`.
+
+## stowage_check.py
+
+First-order logistics sketch: carried-oxygen baseline (three storage forms)
+versus the TRIDENT-Luna plant mass, with and without a dedicated fission
+plant boundary.
+
+```bash
+python3 tools/stowage_check.py
+```
+
+Analysis: `variants/moon/stowage-break-even.md`.
