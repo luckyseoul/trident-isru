@@ -77,3 +77,27 @@ python3 tools/stowage_check.py
 ```
 
 Analysis: `variants/moon/stowage-break-even.md`.
+
+## availability_check.py
+
+First-order availability and spares screen: Poisson down-string model over an
+assumed MTBF/MTTR range, per-string capacity margin needed for N-1 to be
+production-neutral, and buffer tolerance for a single-string outage. Not an
+FMEA — see the doc for the boundary.
+
+```bash
+python3 tools/availability_check.py
+```
+
+Analysis: `variants/moon/availability-screen.md`.
+
+## tests/
+
+Regression tests pinning the numbers the documents quote, the screening
+results, the repository's internal links, and the presence of key artifacts.
+
+```bash
+python3 -m unittest discover -s tests -t . -v
+```
+
+CI runs the tests plus every tool on each push (`.github/workflows/checks.yml`).

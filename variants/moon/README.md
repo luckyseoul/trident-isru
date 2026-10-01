@@ -226,8 +226,9 @@ in prose: the composition lives in `modules/parameters.yaml`.
 See `ASSUMPTIONS.md` for the full ledger. The lunar list in brief: mining
 energy demonstration (bench-test gate in `miner-heat-transfer.md`),
 ice-concentration site survey, PSR-to-processing material handling, warm-swap
-isolation and turnaround (`ops-screens.md`), H₂ long-term storage, fission
-plant availability timing (readiness draft: `trl-table.md`).
+isolation and turnaround (`ops-screens.md`), the N-1 capacity margin implied by
+`availability-screen.md`, H₂ long-term storage, fission plant availability
+timing (readiness draft: `trl-table.md`).
 
 ## 8. Sources
 

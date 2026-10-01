@@ -107,7 +107,9 @@ is quantified at the no-margin floor (two of three strings → 2/3 of nameplate:
 it). Warm-swap cooldown is screened radiatively (~15 min–2.3 h,
 `ops-screens.md`), but the isolation hardware that makes it real, restart
 transients and service turnaround remain unmodeled. Also open:
-FMEA/availability/spares for a life-support-critical plant; rejection and
+FMEA proper — the availability/spares screen (`availability-screen.md`) is
+first-order, with no failure-mode taxonomy and no common-cause analysis;
+rejection and
 condensation details beyond the radiator-area screen (item 7); batching
 transients for the mining thermal duty; and the stowage break-even is now
 sketched (`stowage-break-even.md`) rather than a costed logistics analysis.
