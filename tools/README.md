@@ -53,3 +53,15 @@ python3 tools/miner_check.py
 
 Writes `variants/moon/figures/luna_miner_heat_transfer.png`. Analysis and the
 bench-test gate: `variants/moon/miner-heat-transfer.md`.
+
+## ops_check.py
+
+First-order operations screens for the lunar variant: warm-swap cooldown time
+(radiative integral, with assumption cases) and duty-cycle auxiliary load
+profiles (continuous / batch mining / idle).
+
+```bash
+python3 tools/ops_check.py
+```
+
+Analysis: `variants/moon/ops-screens.md`.
