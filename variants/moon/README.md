@@ -81,10 +81,19 @@ high end of its demonstrated range.
 Three identical process strings (electrolysis modules) sit on a shared
 thermal mass baseplate, as in the Mars concept. Each string is fluidically
 and thermally isolated before servicing (warm-swap), so one string can cool
-for maintenance while the other two keep producing. With one string down and
-no throttle margin, output falls to two-thirds of the set point: **2.4 kg
-O₂/day ≈ 2.9 crew-equivalents** — the availability floor to design against
-(per-string headroom, if specified, would raise it).
+for maintenance while the other two keep producing. N-1 behavior is stated
+explicitly (`availability-screen.md`): with one string down and no throttle
+margin, output falls to two-thirds of the set point — **2.4 kg O₂/day,
+0.96 kg/day short of the 3.36 kg/day crew demand**. Two closure options, each
+one line of design intent:
+
+- **Design margin:** size each string for 1.8 kg O₂/day (1.5× its nameplate
+  share) so two strings cover the set point — N-1 becomes production-neutral.
+- **Buffer CONOPS:** run strings at their share and accept draw-down — the
+  3-day buffer (10.8 kg) covers **11.3 days** of single-string outage at the
+  shortfall rate, against a stated repair timeline.
+
+Either is defensible; leaving the availability behavior implicit is not.
 
 ```
 PSR ice-bearing regolith ──► [ice feedstock kit] ──► water ──► [electrolysis ×3] ──► O2 (life support)

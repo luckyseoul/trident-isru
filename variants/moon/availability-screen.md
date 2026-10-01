@@ -37,6 +37,23 @@
   to a single-string outage — it should be stated explicitly rather than
   implied by "the other two keep producing."
 
+## Resolving the N-1 finding
+
+Two defensible closures, both cheap to state and both one line of design
+intent in the variant document:
+
+1. **Design margin** — size each string for 1.80 kg O₂/day (1.5× its nameplate
+   share) so two strings cover the 3.6 kg/day set point; N-1 becomes
+   production-neutral. Cost: stack capacity bought for redundancy.
+2. **Buffer CONOPS** — run strings at their share and accept draw-down: the
+   3-day buffer (10.8 kg) covers 11.3 days at the 0.96 kg/day shortfall, with
+   a stated repair timeline (12 h assumed here) and a reduced-activity
+   fallback if the outage outlasts the buffer.
+
+`variants/moon/README.md` §2 now states both. What is not acceptable is
+leaving the availability behavior implicit behind "the other two keep
+producing."
+
 ## What this is not
 
 Not an FMEA. There is no failure-mode taxonomy, no common-cause analysis
