@@ -31,13 +31,15 @@ difference is ~3% and is not corrected for.
    kWh/kg — assumes heat recuperation and scale effects that are a **stated
    design requirement, not a demonstrated fact**. Retire this risk first.
 
-   Three caveats raised in design review, not yet modeled:
+   Design-review caveats (the first is now screened; the other two remain
+   open model limitations):
 
-   - **Heat-transfer limited, not just energy-limited.** In vacuum, heat must
-     be conducted into porous regolith of very low thermal conductivity; the
-     extraction *rate* is set by heater/contact area and power density, not
-     by the specific-energy figure alone. The 95 kg feedstock-kit mass line
-     does not by itself demonstrate the required ground contact area.
+   - **Heat-transfer screen completed** (see `variants/moon/miner-heat-transfer.md`,
+     `tools/miner_check.py`). At the design point ~208 W must enter the ground;
+     natural conduction would need 19–381 m of probe (38–762 kg) or 10–208 m² of
+     heated surface, with diffusion time constants of weeks (14–278 days for
+     0.2 m). The 95 kg kit does not represent that hardware; a bench-test gate
+     (≤10 kWh/kg at ≥2.8 g/min) is specified to retire the risk.
    - **Concentration couples to energy in reality.** The model applies
      specific energy per kg of water independently of ice concentration;
      physically, heating the inert fraction adds sensible-heat cost, so a

@@ -71,6 +71,24 @@ carried into the parameter files instead of being collapsed to one number.
   NASA/SP-2010-3407 (HIDH): https://ntrs.nasa.gov/citations/20140003093
   NASA/TP-2015-218570 (BVAD): https://ntrs.nasa.gov/citations/20150014436
 
+### Miner heat-transfer screen (`variants/moon/miner-heat-transfer.md`)
+
+- **Regolith thermal conductivity: 0.001–0.025 W/m·K; bulk ≈ 0.01 W/m·K.**
+  Apollo heat-flow reassessment (JGR 2010): https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010JE003612
+  Revised lunar heat-flow values (NTRS 19770051977): https://ntrs.nasa.gov/citations/19770051977
+- **Regolith specific heat: 0.265 → 0.830 kJ/kg·K over 100–350 K.**
+  NASA NTRS 19930007428: https://ntrs.nasa.gov/api/citations/19930007428/downloads/19930007428.pdf
+  Hemingway et al. 1973 (Apollo 14/15/16 soils): https://adsabs.harvard.edu/full/1973LPSC....4.2481H
+- **Sublimation enthalpy of water ice: 51.1 kJ/mol at 273.15 K = 2.834 MJ/kg.**
+  NIST Chemistry WebBook (water): https://webbook.nist.gov/cgi/cbook.cgi?ID=C7732185&Units=SI
+- **Microwave extraction (lab): 0.84–1.57 g/min collection from cryogenic icy
+  regolith at kW-class input → 10.6–21.2 kWh/kg water.**
+  Research (2025), “Massive Water Production from Cryogenic Icy Lunar Regolith
+  by a Microwave Heating Method”: https://spj.science.org/doi/10.34133/research.0800
+- **Drilling-based thermal extraction: pilot-scale study; static heating of 2%
+  ice regolith reported at ~37.9 Wh/g.**
+  https://www.researchgate.net/publication/365155522_Water_extraction_from_icy_lunar_regolith_by_drilling-based_thermal_method_in_a_pilot-scale_unit
+
 ## Power
 
 - **Fission surface power: 40 kWe-class unit targeted to operate on the

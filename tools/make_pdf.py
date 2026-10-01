@@ -153,9 +153,11 @@ heat recuperation at scale and must be demonstrated.</div>
 <div class="caption">Figure 3 — Concept mass breakdown.</div>
 
 <h2>6. Open items</h2>
-<p>Ranked list in <b>ASSUMPTIONS.md</b>: mining energy; ice concentration;
-PSR-to-plant material handling; H₂ storage not modeled; fission availability;
-dust at the regolith interface; night thermal duty; no-methane scope check.</p>
+<p>Ranked list in <b>ASSUMPTIONS.md</b>: mining energy and heat delivery
+(a first-order screen and a bench-test gate are now specified — see
+<b>miner-heat-transfer.md</b>); ice concentration; PSR-to-plant material
+handling; H₂ storage not modeled; fission availability; dust at the regolith
+interface; night thermal duty; no-methane scope check.</p>
 
 <h2>7. Sources</h2>
 <p class="small">All external figures: <b>variants/moon/SOURCES.md</b>

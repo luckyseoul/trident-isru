@@ -168,6 +168,13 @@ the heat-transfer rate limits of extracting ice from vacuum regolith of very
 low conductivity. Treat both tables as first-order sensitivities; retire the
 miner risk (energy, rate and contact area) before detailed design.
 
+The heat-delivery side of this risk has since been screened in
+[`miner-heat-transfer.md`](miner-heat-transfer.md): at the design point ~208 W
+must enter the ground, and natural conduction would need tens to hundreds of
+metres of probe (or tens to hundreds of m² of heated surface) — the feedstock
+kit must be re-scoped for the chosen heat-delivery architecture, and a
+bench-test gate (≤10 kWh/kg at ≥2.8 g/min) is specified to retire the risk.
+
 **Night power:** at 2.3 kW average, a solar-battery architecture would need
 **~1,016 kWh of storage (~6.8 t of Li-ion at 150 Wh/kg)** to ride the 354 h
 equatorial night — not viable. On Mars the same calculation gives ~28 kWh
@@ -207,6 +214,9 @@ in prose: the composition lives in `modules/parameters.yaml`.
 
 ![Mass breakdown](figures/luna_mass_breakdown.png)
 *Figure 3 — Concept mass breakdown (324 kg core + feedstock, contingency kit shown separately).*
+
+![Miner heat transfer](figures/luna_miner_heat_transfer.png)
+*Figure 4 — First-order heat-delivery screen: conduction-limited probe length and diffusion time constant vs regolith conductivity (see [miner-heat-transfer.md](miner-heat-transfer.md)).*
 
 ## 7. Open items
 

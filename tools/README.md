@@ -39,3 +39,17 @@ Outputs: `figures/platform_night_storage.png`,
 `variants/moon/figures/luna_{energy_budget,mining_sensitivity,mass_breakdown}.png`.
 Requires matplotlib and Pillow. The Mars variant keeps its original published
 figures in `variants/mars/figures/`.
+
+## miner_check.py
+
+First-order heat-transfer screen for the lunar ice miner (risk item 1): heat
+demand at the design point, conduction-limited probe length and blanket area,
+diffusion time constants across the Apollo conductivity range, and the
+microwave lab anchor.
+
+```bash
+python3 tools/miner_check.py
+```
+
+Writes `variants/moon/figures/luna_miner_heat_transfer.png`. Analysis and the
+bench-test gate: `variants/moon/miner-heat-transfer.md`.
