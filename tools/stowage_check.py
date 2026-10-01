@@ -26,16 +26,34 @@ WATER_PER_KG_O2 = 1.125
 DEDICATED_FISSION_KG = 6400.0  # 40 kWe-class plant, lander-delivered (NTRS 20220004670)
 
 
+def compute(plant_kg: float) -> dict:
+    """Carried-oxygen masses per storage form for the baseline mission year."""
+    o2_year = CREW * O2_KG_PER_PERSON_DAY * DAYS_PER_YEAR
+    return {
+        "o2_year": o2_year,
+        "forms": {
+            "gaseous O2 (5x for tanks)": o2_year * TANK_FACTOR_GAS,
+            "LOX (+20% tankage)": o2_year * TANK_FACTOR_LOX,
+            "water, electrolyzed on site (+10% tanks)": o2_year * WATER_PER_KG_O2 * TANK_FACTOR_WATER,
+        },
+    }
+
+
+def break_even_months(plant_kg: float, mass_per_year: float) -> float:
+    return plant_kg / mass_per_year * 12.0
+
+
+def break_even_years_with_fission(plant_kg: float, mass_per_year: float) -> float:
+    return (plant_kg + DEDICATED_FISSION_KG) / mass_per_year
+
+
 def main() -> None:
     moon = build("variants/moon")
     plant_kg = moon["mass_total_kg"]
 
-    o2_year = CREW * O2_KG_PER_PERSON_DAY * DAYS_PER_YEAR
-    forms = {
-        "gaseous O2 (5x for tanks)": o2_year * TANK_FACTOR_GAS,
-        "LOX (+20% tankage)": o2_year * TANK_FACTOR_LOX,
-        "water, electrolyzed on site (+10% tanks)": o2_year * WATER_PER_KG_O2 * TANK_FACTOR_WATER,
-    }
+    data = compute(plant_kg)
+    o2_year = data["o2_year"]
+    forms = data["forms"]
 
     print("Carried-O2 baseline vs TRIDENT-Luna (first-order)\n")
     print(f"carried baseline: {CREW} crew x {O2_KG_PER_PERSON_DAY} kg/day "
@@ -43,9 +61,8 @@ def main() -> None:
     print(f"TRIDENT-Luna plant mass (incl. ice feedstock kit): {plant_kg:,.0f} kg\n")
     print(f"{'storage form':<45} {'kg/year':>9} {'break-even (plant only)':>25} {'+ dedicated fission':>22}")
     for label, mass in forms.items():
-        be_months = plant_kg / mass * 12.0
-        be_years_ded = (plant_kg + DEDICATED_FISSION_KG) / mass
-        print(f"{label:<45} {mass:>9,.0f} {be_months:>21.1f} mo {be_years_ded:>19.1f} yr")
+        print(f"{label:<45} {mass:>9,.0f} {break_even_months(plant_kg, mass):>21.1f} mo "
+              f"{break_even_years_with_fission(plant_kg, mass):>19.1f} yr")
 
 
 if __name__ == "__main__":

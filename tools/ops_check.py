@@ -26,6 +26,17 @@ def cooldown_time(m_kg: float, cp: float, area_m2: float, eps: float, t0: float,
     return m_kg * cp / (3 * eps * SIGMA * area_m2) * (1.0 / t1**3 - 1.0 / t0**3)
 
 
+def duty_profiles(loads: dict) -> dict[str, float]:
+    """Average auxiliary load [W] per ops mode, from a variant's load dict."""
+    mining = loads["feedstock-ice-water"]
+    rest = sum(v for k, v in loads.items() if k != "feedstock-ice-water")
+    return {
+        "continuous mining (model baseline)": rest + mining,
+        "batch mining, 12 h/day": rest + mining * 0.5,
+        "mining off / idle (hibernation)": rest,
+    }
+
+
 def main() -> None:
     moon = build("variants/moon")
     loads = moon["continuous_loads_w"]
@@ -49,13 +60,7 @@ def main() -> None:
     print("\n-- duty-cycle profiles (continuous auxiliary loads, W) --")
     print(f"  base loads (always on, excluding mining kit): {rest:.0f}")
     print(f"  mining kit: {mining:.0f}")
-    profiles = {
-        "continuous mining (model baseline)": 1.0,
-        "batch mining, 12 h/day": 0.5,
-        "mining off / idle (hibernation)": 0.0,
-    }
-    for label, duty in profiles.items():
-        avg = rest + mining * duty
+    for label, avg in duty_profiles(loads).items():
         print(f"  {label}: {avg:>4.0f} W average -> {avg * 24 / 1000:>4.1f} kWh/day auxiliary")
     print(f"  simultaneous peak: {rest + mining:.0f} W; the model's fission allocation")
     print("  (1.5x average) covers this with margin for heater transients")

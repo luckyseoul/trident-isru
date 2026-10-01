@@ -1,0 +1,33 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python3 -m pip install --quiet pyyaml
+
+      - name: Regression tests
+        run: python3 -m unittest discover -s tests -t . -v
+
+      - name: Sizing model (both variants)
+        run: |
+          python3 tools/model.py variants/moon > /dev/null
+          python3 tools/model.py variants/mars > /dev/null
+
+      - name: Screening tools
+        run: |
+          python3 tools/miner_check.py > /dev/null
+          python3 tools/ops_check.py > /dev/null
+          python3 tools/stowage_check.py > /dev/null
+          python3 tools/availability_check.py > /dev/null
